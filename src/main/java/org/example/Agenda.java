@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Representa una agenda de contactos que permite añadir, eliminar y modificar números de teléfono.
  */
-public class Agenda {
+public class Agenda implements IAgenda {
     private List<Contacto> contacts; // Lista de Contacto
 
     /**
@@ -24,6 +24,7 @@ public class Agenda {
      * @param name  Nombre del contacto.
      * @param phone Número de teléfono del contacto.
      */
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Contacto c : contacts) {
@@ -45,6 +46,7 @@ public class Agenda {
      *
      * @param name Nombre del contacto a eliminar.
      */
+    @Override
     public void removeContact(String name) {
         Iterator<Contacto> it = contacts.iterator();
 
@@ -64,6 +66,7 @@ public class Agenda {
      * @param oldPhone Número de teléfono antiguo que será reemplazado.
      * @param newPhone Nuevo número de teléfono.
      */
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Contacto c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -83,6 +86,7 @@ public class Agenda {
      *
      * @return Lista de objetos {@link Contacto}.
      */
+    @Override
     public List<Contacto> getContacts() {
         return this.contacts;
     }
